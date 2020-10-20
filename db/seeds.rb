@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+event_management = Project.find_or_create_by(name:"Event Management")
+design_conference = Project.find_or_create_by(name:"Design Conference")
