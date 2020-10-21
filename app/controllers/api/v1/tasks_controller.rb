@@ -15,9 +15,9 @@ class Api::V1::TasksController < ApplicationController
 end 
 #GET/ tasks/1
 
-def show 
-  render json: @task
-end
+# def show 
+#   render json: @task
+# end
 
 # POST/task
 def create 
@@ -34,10 +34,10 @@ end
 
 # SHOW 
 
-# def show
-#   task = Task.find_by(id: params[:id])
-#   render json: task
-# end
+def show
+  task = Task.find_by(id: params[:id])
+  render json: task
+end
 
 
 # PATCH/PUT /task/1
@@ -53,6 +53,8 @@ end
 #DELETE/ tasks/1
 
 def destroy
+# byebug
+  @task = Task.find_by_id(params[:id])
   @task.destroy
 end 
 
@@ -60,6 +62,7 @@ private
 def task_params 
   params.require(:task).permit(:title, :deadline, :creator, :completed, :project_id)
 end
+
 
 end
 
